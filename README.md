@@ -83,7 +83,7 @@ gradlew.bat assembleJava32Release --no-daemon --console=plain
 # 产物：app/build/outputs/apk/java32/release/TVBox_release-java32.apk
 ```
 
-> 签名：`app/build.gradle` 引用 `app/libretv.keystore`（release 签名）。keystore 为私有文件，不随仓库分发，构建前请在 `app/` 目录放置同名文件或修改 `signingConfigs`。
+> 签名：release 签名从工程根 `keystore.properties` 读取（该文件已被 `.gitignore` 排除，不入库，避免密码泄露）。构建前请在工程根创建 `keystore.properties`，包含 `storeFile`、`storePassword`、`keyAlias`、`keyPassword` 四项，或修改 `app/build.gradle` 的 `signingConfigs`。
 
 ### 安装到电视
 

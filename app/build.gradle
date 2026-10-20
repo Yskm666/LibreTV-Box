@@ -96,12 +96,19 @@ android {
         }
     }
 
+    // 签名配置：从根目录 keystore.properties 读取（该文件不入库，避免密码泄露）
+    def ksProps = new Properties()
+    def ksPropsFile = rootProject.file('keystore.properties')
+    if (ksPropsFile.exists()) {
+        ksProps.load(new FileInputStream(ksPropsFile))
+    }
+
     signingConfigs {
         release {
-            storeFile file("libretv.keystore")
-            storePassword "libretv"
-            keyAlias "libretv"
-            keyPassword "libretv"
+            storeFile file(ksProps.getProperty('storeFile', 'libretv.keystore'))
+            storePassword ksProps.getProperty('storePassword', '')
+            keyAlias ksProps.getProperty('keyAlias', '')
+            keyPassword ksProps.getProperty('keyPassword', '')
         }
     }
 
