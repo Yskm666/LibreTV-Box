@@ -6,7 +6,7 @@
 ![版本](https://img.shields.io/github/v/release/Yskm666/LibreTV-Box)
 ![Star](https://img.shields.io/github/stars/Yskm666/LibreTV-Box)
 
-> 让电视回归电视 —— 为小米电视 L50M5-AD 深度定制的 TVBoxOSC 增强版
+>  —— 为小米电视 L50M5-AD 深度定制的 TVBoxOSC 增强版
 
 基于 [TVBoxOSC](https://github.com/TVBoxOSC/TVBoxOSC) 二次开发，针对小米电视 L50M5-AD（代号 `xmen`，Amlogic T962，Android 6.0.1 / 32 位）进行全链路优化：融合三大开源广告规则项目实现系统级广告过滤、预置加密聚合线路、修复 Android 6 旧 CA 导致的 SSL 报错、显著降低加载延迟。
 
