@@ -1,0 +1,45 @@
+name: Build APK & Release
+
+on:
+  push:
+    branches: [master]
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: >-
+            platforms;android-33
+            build-tools;30.0.3
+            platform-tools
+      - name: Build 32-bit debug APK
+        run: ./gradlew assembleJava32Debug --no-daemon --console=plain
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_SDK_ROOT }}
+          JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LibreTV_Box_java32_${{ github.ref_name }}
+          path: app/build/outputs/apk/java32/debug/*.apk
+          retention-days: 14
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: app/build/outputs/apk/java32/debug/*.apk
+          generate_release_notes: true
