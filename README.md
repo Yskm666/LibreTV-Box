@@ -1,5 +1,11 @@
 # LibreTV Box
 
+![平台](https://img.shields.io/badge/平台-Android%206.0%2B-blue)
+![许可](https://img.shields.io/github/license/Yskm666/LibreTV-Box)
+![构建](https://img.shields.io/github/actions/workflow/status/Yskm666/LibreTV-Box/build-apk.yml)
+![版本](https://img.shields.io/github/v/release/Yskm666/LibreTV-Box)
+![Star](https://img.shields.io/github/stars/Yskm666/LibreTV-Box)
+
 > 让电视回归电视 —— 为小米电视 L50M5-AD 深度定制的 TVBoxOSC 增强版
 
 基于 [TVBoxOSC](https://github.com/TVBoxOSC/TVBoxOSC) 二次开发，针对小米电视 L50M5-AD（代号 `xmen`，Amlogic T962，Android 6.0.1 / 32 位）进行全链路优化：融合三大开源广告规则项目实现系统级广告过滤、预置加密聚合线路、修复 Android 6 旧 CA 导致的 SSL 报错、显著降低加载延迟。
@@ -24,6 +30,8 @@ LibreTV Box 面向家庭电视场景，集中解决三个核心痛点：
 3. **设备老旧** —— Android 6.0.1 的卡顿与证书报错问题逐一修复
 
 项目保留 TVBoxOSC 全部核心能力（多线路聚合、加密源解析、直播、嗅探），并在此基础上新增一套独立的广告过滤引擎与若干稳定性改造。
+
+参与贡献请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 核心功能
 

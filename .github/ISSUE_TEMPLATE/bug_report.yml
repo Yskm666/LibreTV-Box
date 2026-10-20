@@ -1,0 +1,65 @@
+name: Bug 反馈
+description: 播放失败、广告拦截不生效、崩溃或其他异常
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量填写完整信息，帮助开发者快速定位。
+  - type: dropdown
+    id: device
+    attributes:
+      label: 设备 / 系统
+      description: 运行的设备型号与系统版本
+      options:
+        - 小米电视 L50M5-AD（Android 6.0.1）
+        - 其他 Android 设备
+        - 模拟器
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App 版本
+      description: 设置页或 APK 文件名中的版本号
+      placeholder: 例如 v7 / LibreTV_Box_java32_v7.apk
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 如何触发该问题（操作路径）
+      placeholder: |
+        1. 打开应用进入首页
+        2. 搜索 xxx
+        3. 点击播放
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 你认为应该发生什么
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 实际发生了什么（附错误提示或截图）
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志（可选）
+      description: adb logcat 中与问题相关的输出，重点关键词 echo-adrules / echo-ad-blocked / echo-playM3u8 / 崩溃堆栈
+      placeholder: "adb logcat -d | Select-String 'echo-adrules|echo-ad-blocked'"
+      render: shell
+  - type: textarea
+    id: lines
+    attributes:
+      label: 使用的线路
+      description: 复现时选择的线路（如蜗牛 111 站 / 放牛主源 / 自定义）
