@@ -1,0 +1,45 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/releases" }
+        maven { url "https://storage.googleapis.com/r8-releases/raw" }
+        maven {
+            url "http://4thline.org/m2"
+            allowInsecureProtocol = true
+        }
+        maven { url "https://chaquo.com/maven" }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.2'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        // classpath "com.chaquo.python:gradle:12.0.1"  // 仅 python 变体需要，java32 构建跳过
+    }
+}
+
+allprojects {
+    // 构建输出改到独立目录，绕开原 build 目录被占用的删除锁问题
+    buildDir = new File("C:/tvbox-build", project.name)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "http://4thline.org/m2"
+            allowInsecureProtocol = true
+        }
+        maven { url "https://jitpack.io" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/releases" }
+        gradlePluginPortal()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

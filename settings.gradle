@@ -1,0 +1,5 @@
+rootProject.name = "TVBox"
+include ':app'
+include ':player'
+include ':quickjs'
+// include ':pyramid'  // python 爬虫模块，java32 定制版不参与构建
