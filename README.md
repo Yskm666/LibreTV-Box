@@ -8,7 +8,7 @@
 
 >  —— 为小米电视 L50M5-AD 深度定制的 TVBoxOSC 增强版
 
-基于 [TVBoxOSC](https://github.com/TVBoxOSC/TVBoxOSC) 二次开发，针对小米电视 L50M5-AD（代号 `xmen`，Amlogic T962，Android 6.0.1 / 32 位）进行全链路优化：融合三大开源广告规则项目实现系统级广告过滤、预置加密聚合线路、修复 Android 6 旧 CA 导致的 SSL 报错、显著降低加载延迟。
+基于 [TVBoxOS（TVBoxOSC 系）](https://github.com/q215613905/TVBoxOS) 二次开发，针对小米电视 L50M5-AD（代号 `xmen`，Amlogic T962，Android 6.0.1 / 32 位）进行全链路优化：融合三大开源广告规则项目实现系统级广告过滤、预置加密聚合线路、修复 Android 6 旧 CA 导致的 SSL 报错、显著降低加载延迟。
 
 ## 目录
 
@@ -164,7 +164,7 @@ adb shell monkey -p com.github.tvbox.osc.jun -c android.intent.category.LAUNCHER
 - **解析器**：嗅探、解析直链，支持自定义 header
 - **广告列表**：配置 `ads` 字段追加拦截域名
 
-完整配置语法参考上游 [TVBoxOSC](https://github.com/TVBoxOSC/TVBoxOSC) 文档。
+完整配置语法参考上游 [TVBoxOS](https://github.com/q215613905/TVBoxOS) 文档。
 
 ## 常见问题
 
@@ -180,7 +180,7 @@ adb shell monkey -p com.github.tvbox.osc.jun -c android.intent.category.LAUNCHER
 
 ## 执照
 
-本项目基于 [TVBoxOSC/TVBoxOSC](https://github.com/TVBoxOSC/TVBoxOSC) 二次开发，遵循上游协议 **GPL-3.0**。
+本项目基于 [TVBoxOS（TVBoxOSC 系）](https://github.com/q215613905/TVBoxOS) 二次开发，遵循上游协议 **GPL-3.0**。
 
 融合的规则数据来源于：
 
