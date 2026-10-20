@@ -191,7 +191,7 @@ public class ApiConfig {
         }
         return configUrl;
     }
-    // ==== LibreTV Box 预置源（开箱即用，三个来源） ====
+    // ==== TV-box 预置源（开箱即用，三个来源） ====
     // 1) 主源：放牛线路（标准 TVBox 配置 63 站点，实测 HTTP 200 稳定可达；
     //    注：小苹果聚合首条/蜗牛为加密源 TVBoxOSC 无法解析，已弃用为默认）
     private static final String PRESET_MAIN_API = "http://tvbox.xn--4kq62z5rby2qupq9ub.top";
@@ -203,13 +203,13 @@ public class ApiConfig {
     private static final String PRESET_JUNLAO_LINE_URL = "http://home.jundie.top:81/top98.json";
     private static final String PRESET_WONIU_LINE_NAME = "蜗牛线路(111站)";
     private static final String PRESET_WONIU_LINE_URL = "https://tv.xn--11x555b.top/svip";
-    // 4) 量子源 bfzyapi（LibreTV 官方文档示例源，CMS V10 接口，实测可用）
+    // 4) 量子源 bfzyapi（TV-box 官方文档示例源，CMS V10 接口，实测可用）
     private static final String PRESET_BFZYAPI_NAME = "量子源(bfzyapi)";
     private static final String PRESET_BFZYAPI_API = "https://bfzyapi.com/api.php/provide/vod";
 
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
         String storedUrl = Hawk.get(HawkConfig.API_URL, "");
-        // LibreTV Box 定制：首次启动预置放牛线路（标准 TVBox 配置，实测可用）
+        // TV-box 定制：首次启动预置放牛线路（标准 TVBox 配置，实测可用）
         final String apiUrl = storedUrl.isEmpty() ? PRESET_MAIN_API : storedUrl;
         if (storedUrl.isEmpty()) {
             Hawk.put(HawkConfig.API_URL, apiUrl);
@@ -978,14 +978,14 @@ public class ApiConfig {
                 }
             }
         }
-        // LibreTV Box 定制：预置源注入（GitHub 聚合线路 + bfzyapi 量子源站点）
+        // TV-box 定制：预置源注入（GitHub 聚合线路 + bfzyapi 量子源站点）
         ensurePresetLinesAndSites();
     }
 
     /**
-     * LibreTV Box 定制：确保预置源始终可用。
+     * TV-box 定制：确保预置源始终可用。
      * 1) 把 GitHub 每日更新聚合、俊佬线路追加进线路列表（与远端线路去重，用户可在"线路选择"中切换）；
-     * 2) 把 bfzyapi 量子源（CMS V10，LibreTV 官方文档背书）注入站点列表，开箱即可搜索/播放。
+     * 2) 把 bfzyapi 量子源（CMS V10，TV-box 官方文档背书）注入站点列表，开箱即可搜索/播放。
      * 幂等：重复加载不会产生重复项。
      */
     private void ensurePresetLinesAndSites() {
@@ -1043,7 +1043,7 @@ public class ApiConfig {
             for (JsonElement host : defaultJson.getAsJsonArray("ads")) {
                 AdBlocker.addAdHost(host.getAsString());
             }
-            // LibreTV Box: 扩充默认广告域（放牛主源 ads + 通用广告/统计域）
+            // TV-box: 扩充默认广告域（放牛主源 ads + 通用广告/统计域）
             String[] extraAds = new String[]{
                     "mozai.4gtv.tv", "static-mozai.4gtv.tv", "pv.vipwm.cc",
                     "googlesyndication.com", "doubleclick.net", "umeng.com",
@@ -1054,7 +1054,7 @@ public class ApiConfig {
                 if (!AdBlocker.hasHost(ad)) AdBlocker.addAdHost(ad);
             }
         }
-        // LibreTV Box: 融合 uBlock Origin / Pi-hole(StevenBlack hosts) / Cats-Team AdRules 三大规则源（异步加载缓存+刷新）
+        // TV-box: 融合 uBlock Origin / Pi-hole(StevenBlack hosts) / Cats-Team AdRules 三大规则源（异步加载缓存+刷新）
         AdRuleManager.init(App.getInstance());
         // IJK解码配置
         if(ijkCodes==null){

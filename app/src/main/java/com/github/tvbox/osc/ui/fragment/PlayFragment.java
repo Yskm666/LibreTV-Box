@@ -956,7 +956,7 @@ public class PlayFragment extends BaseLazyFragment {
     }
 
     void playUrl(String url, HashMap<String, String> headers) {
-        // LibreTV Box: 播放层广告拦截——广告直链地址直接跳过不播放
+        // TV-box: 播放层广告拦截——广告直链地址直接跳过不播放
         if (!TextUtils.isEmpty(url) && AdBlocker.isAd(url)) {
             LOG.i("echo-ad-blocked:" + url);
             setTip("已拦截广告地址", true, false);
@@ -965,7 +965,7 @@ public class PlayFragment extends BaseLazyFragment {
         startSwitchLinePlayTimeout();
         url = attachProxySiteKey(url);
         if(!url.startsWith("data:application"))EventBus.getDefault().post(new RefreshEvent(RefreshEvent.TYPE_REFRESH, url));//更新播放地址
-        // LibreTV Box: m3u8 净化默认开启（未手动设置过时），且不再限制官方大站——净化器为内容特征识别，对所有 m3u8 源通用
+        // TV-box: m3u8 净化默认开启（未手动设置过时），且不再限制官方大站——净化器为内容特征识别，对所有 m3u8 源通用
         boolean purify = Hawk.get(HawkConfig.M3U8_PURIFY, true);
         if (!purify) {
             goPlayUrl(url,headers);
@@ -2934,7 +2934,7 @@ public class PlayFragment extends BaseLazyFragment {
         @Nullable
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-            // LibreTV Box: 恢复广告拦截（原代码被注释导致 WebView 解析时 AdBlocker 失效）
+            // TV-box: 恢复广告拦截（原代码被注释导致 WebView 解析时 AdBlocker 失效）
             try {
                 WebResourceResponse response = checkIsVideo(url, new HashMap<>());
                 if (response != null) return response;

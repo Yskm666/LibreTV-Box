@@ -1,10 +1,10 @@
-# LibreTV Box
+# TV-box
 
 ![平台](https://img.shields.io/badge/平台-Android%206.0%2B-blue)
-![许可](https://img.shields.io/github/license/Yskm666/LibreTV-Box)
-![构建](https://img.shields.io/github/actions/workflow/status/Yskm666/LibreTV-Box/build-apk.yml)
-![版本](https://img.shields.io/github/v/release/Yskm666/LibreTV-Box)
-![Star](https://img.shields.io/github/stars/Yskm666/LibreTV-Box)
+![许可](https://img.shields.io/github/license/Yskm666/TV-box)
+![构建](https://img.shields.io/github/actions/workflow/status/Yskm666/TV-box/build-apk.yml)
+![版本](https://img.shields.io/github/v/release/Yskm666/TV-box)
+![Star](https://img.shields.io/github/stars/Yskm666/TV-box)
 
 >  —— 为小米电视 L50M5-AD 深度定制的 TVBoxOSC 增强版
 
@@ -23,7 +23,7 @@
 
 ## 说明
 
-LibreTV Box 面向家庭电视场景，集中解决三个核心痛点：
+TV-box 面向家庭电视场景，集中解决三个核心痛点：
 
 1. **广告多** —— 系统广告、片头广告、源注入广告三层清理
 2. **操作复杂** —— 聚合 111+ 影视站点，搜索、点播一步直达
@@ -100,7 +100,7 @@ gradlew.bat assembleJava32Release --no-daemon --console=plain
 adb connect <电视IP>:5555
 
 # 安装（-r 覆盖升级并保留数据）
-adb install -r LibreTV_Box_java32_v7.apk
+adb install -r TV-box_java32_v7.apk
 
 # 全新安装时清数据（可选）
 adb shell pm clear com.github.tvbox.osc.jun

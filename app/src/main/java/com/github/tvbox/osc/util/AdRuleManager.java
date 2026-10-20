@@ -15,7 +15,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * LibreTV Box 广告规则管理器
+ * TV-box 广告规则管理器
  * 融合三大开源规则源：
  *  1. uBlock Origin (gorhill/uBlock → uAssets filters)
  *  2. Pi-hole 生态域名黑名单 (StevenBlack/hosts)

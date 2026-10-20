@@ -52,7 +52,7 @@ import xyz.doikki.videoplayer.exo.ExoMediaSourceHelper;
 
 
 public class OkGoHelper {
-    public static final long DEFAULT_MILLISECONDS = 8000;      //LibreTV Box: 默认超时 20s→8s（减少失败请求的等待卡顿）
+    public static final long DEFAULT_MILLISECONDS = 8000;      //TV-box: 默认超时 20s→8s（减少失败请求的等待卡顿）
 
     // 内置doh json
     private static final String dnsConfigJson = "["

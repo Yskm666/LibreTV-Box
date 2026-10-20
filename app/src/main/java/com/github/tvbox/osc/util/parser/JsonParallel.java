@@ -32,7 +32,7 @@ public class JsonParallel {
     public static JSONObject parse(LinkedHashMap<String, String> jx, String url) {
         try {
             if (jx != null && jx.size() > 0) {
-                // LibreTV Box: 复用全局 client（全信任SSL + 8s超时 + 连接池），不再每次 new
+                // TV-box: 复用全局 client（全信任SSL + 8s超时 + 连接池），不再每次 new
                 if (client == null) client = OkGoHelper.getDefaultClient();
                 if (client == null) client = new OkHttpClient();
                 // 使用线程池并发处理任务

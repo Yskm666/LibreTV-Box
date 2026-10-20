@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * LibreTV Box 广告域名拦截器
+ * TV-box 广告域名拦截器
  * 支持三大规则源融合（uBlock Origin / Pi-hole(StevenBlack hosts) / Cats-Team AdRules）
  * 匹配策略：域名精确 + 子域后缀链匹配（O(1) HashSet），本地代理与纯 IP 永不拦截
  */

@@ -23,7 +23,7 @@ body:
     attributes:
       label: App 版本
       description: 设置页或 APK 文件名中的版本号
-      placeholder: 例如 v7 / LibreTV_Box_java32_v7.apk
+      placeholder: 例如 v7 / TV-box_java32_v7.apk
     validations:
       required: true
   - type: textarea
